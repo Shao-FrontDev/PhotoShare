@@ -1,0 +1,14 @@
+<!-- pages/albums/index.wxml -->
+<view class="container">
+  <view class="banner">
+    <view class="banner-title">Colors</view>
+    <view class="banner-author">Created By you</view>
+  </view>
+  <view class="likes"></view>
+  <view class="image-container-title">Photos</view>
+  <view class="image-container">
+    <block wx:for="{{images}}" wx:key="_id">
+      <image class="image-item" src="{{item}}" mode="aspectFill"></image>
+    </block>
+  </view>
+</view>

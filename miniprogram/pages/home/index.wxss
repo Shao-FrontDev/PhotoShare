@@ -1,0 +1,60 @@
+/* pages/home/index.wxss */
+
+.container {
+  margin-top: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32rpx;
+}
+
+.card {
+  position: relative;
+  width: 686rpx;
+  height: 154rpx;
+
+  background: #c4c4c4;
+  border-radius: 10rpx;
+}
+
+.card-title {
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  backdrop-filter: blur(4px);
+}
+
+.categories {
+  position: absolute;
+  top: 90rpx;
+  left: 30rpx;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: rgba(63, 62, 62, 0.8);
+
+  backdrop-filter: blur(4px);
+}
+
+.space-line {
+  width: 686rpx;
+  height: 0rpx;
+
+
+  border: 1rpx solid #c4c4c4;
+  transform: rotate(-0.17deg);
+}

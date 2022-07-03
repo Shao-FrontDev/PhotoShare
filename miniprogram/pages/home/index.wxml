@@ -1,0 +1,9 @@
+<!-- pages/home/index.wxml -->
+<view class="container">
+  <block wx:for="{{cards}}" wx:key="_id">
+    <image class="card" src="{{item.url}}" mode="aspectFill" bindtap="jumpToAlbums" data-type="{{item._id}}">
+      <view class="categories">{{item.categories}}</view>
+    </image>
+  </block>
+  <view class="space-line"></view>
+</view>

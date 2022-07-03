@@ -1,0 +1,83 @@
+/* pages/albums/index.wxss */
+
+.container {
+  margin-top: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32rpx;
+}
+
+.banner {
+  position: relative;
+  width: 686rpx;
+  height: 246rpx;
+
+  background: #c4c4c4;
+  border-radius: 10rpx;
+}
+
+.likes {
+  width: 686rpx;
+  height: 96rpx;
+  background: #ebebeb;
+  border-radius: 10rpx;
+}
+
+.image-container {
+  display: flex;
+  gap: 8rpx 8rpx;
+  flex-wrap: wrap;
+  width: 688rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.image-item {
+  width: 224rpx;
+  height: 224rpx;
+  background: #c4c4c4;
+}
+
+.image-container-title {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28rpx;
+  line-height: 19rpx;
+  /* identical to box height */
+
+  color: #a5a5a5;
+}
+
+.banner-title {
+  position: absolute;
+  top: 102rpx;
+  left: 30rpx;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  backdrop-filter: blur(4px);
+}
+.banner-author {
+  position: absolute;
+  top: 176rpx;
+  left: 30rpx;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: rgba(255, 255, 255, 0.8);
+
+  backdrop-filter: blur(4px);
+}
