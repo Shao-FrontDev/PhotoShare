@@ -5,6 +5,7 @@ Page({
    */
   data: {
     images: {},
+    banner: {},
   },
 
   /**
@@ -18,9 +19,23 @@ Page({
       .then((res) => {
         console.log(res.data);
         const imageUrls = res.data[0].url;
-        console.log('images: ', imageUrls);
+        console.log("images: ", imageUrls);
         this.setData({
           images: imageUrls,
+        });
+      });
+
+    db.collection("imageCategories")
+      .where({
+        _id: options.type,
+      })
+      .get()
+      .then((res) => {
+        console.log(res.data);
+        const banner = res.data[0];
+        console.log("banner: ", banner);
+        this.setData({
+          banner: banner,
         });
       });
   },

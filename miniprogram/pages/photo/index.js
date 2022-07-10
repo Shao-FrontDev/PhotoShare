@@ -9,6 +9,6 @@ Page({
     autoplay: false,
     circular: false,
     interval: 2000,
-    duration: 100,
+    duration: 800,
   },
 });

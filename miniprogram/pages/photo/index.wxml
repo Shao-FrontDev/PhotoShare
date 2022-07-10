@@ -1,6 +1,6 @@
 <view class="container">
   <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{true}}" interval="{{interval}}" duration="{{duration}}" class="swiper-container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{true}}" interval="{{interval}}" duration="{{duration}}" class="swiper-container" easing-function="easeInOutCubic">
       <block wx:for="{{background}}" wx:key="*this">
         <swiper-item>
           <view class="swiper-item {{item}}"></view>

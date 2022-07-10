@@ -1,9 +1,9 @@
 <!-- pages/albums/index.wxml -->
 <view class="container">
-  <view class="banner">
-    <view class="banner-title">Colors</view>
-    <view class="banner-author">Created By you</view>
-  </view>
+  <image class="banner" src="{{banner.url}}" mode="aspectFill" wx:key="{{_id}}">
+    <view class="banner-title">{{banner.categories}}</view>
+    <view class="banner-author">Photo By Richard</view>
+  </image>
   <view class="likes"></view>
   <view class="image-container-title">Photos</view>
   <view class="image-container">
