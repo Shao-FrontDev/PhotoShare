@@ -119,7 +119,6 @@ button:last-child {
   height: 100vh;
   justify-content: center;
   align-items: center;
-
 }
 
 .page-section-title {
@@ -143,6 +142,8 @@ button:last-child {
 }
 
 .image {
-  width: 100%;
   margin-bottom: 100rpx;
+  width: 686rpx;
+  border-radius: 5rpx;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
