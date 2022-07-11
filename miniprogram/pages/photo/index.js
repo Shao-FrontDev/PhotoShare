@@ -6,20 +6,27 @@ Page({
     interval: 2000,
     duration: 800,
     images: [],
+    currentIndex: 0,
   },
   async onLoad(options) {
-    const imageId = options.id;
-    console.log("🚀 ~ file: index.js ~ line 14 ~ onLoad ~ imageId", imageId);
+    console.log("🚀 ~ file: index.js ~ line 12 ~ onLoad ~ options", options);
+    const { current, type } = options;
     const {
       result: { data },
     } = await wx.cloud.callFunction({
       name: "getAlbumsImages",
     });
+
     const albumsData = data.filter((element) => {
-      return element._id === imageId;
+      return element.type === type;
+    });
+
+    const currentIndex = albumsData.findIndex((element) => {
+      return element._id === current;
     });
 
     this.setData({
+      currentIndex: currentIndex,
       images: albumsData,
     });
   },

@@ -66,6 +66,7 @@
   },
   "srcMiniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
+  "lazyCodeLoading": "requiredComponents",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

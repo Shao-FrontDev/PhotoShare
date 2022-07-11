@@ -6,25 +6,13 @@ Page({
   data: {
     banner: {},
     albums: {},
+    type: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    // const db = wx.cloud.database();
-    // db.collection("imageCategories")
-    //   .where({
-    //     _id: options.type,
-    //   })
-    //   .get()
-    //   .then((res) => {
-    //     const banner = res.data[0];
-    //     this.setData({
-    //       banner: banner,
-    //     });
-    //   });
-
     const {
       result: { data },
     } = await wx.cloud.callFunction({
@@ -36,6 +24,7 @@ Page({
 
     this.setData({
       albums: albumsData,
+      type: options.type,
     });
 
     const randomIndexInAlbums = Math.floor(Math.random() * albumsData.length);
@@ -81,12 +70,9 @@ Page({
   onShareAppMessage() {},
   jumptoPhoto(event) {
     const imageId = event.currentTarget.dataset.id;
-    console.log(
-      "🚀 ~ file: index.js ~ line 79 ~ jumptoPhoto ~ imageId",
-      imageId
-    );
+    console.log(this);
     wx.navigateTo({
-      url: "/pages/photo/index?id=" + imageId,
+      url: `/pages/photo/index?type=${this.data.type}&current=${imageId}`,
     });
   },
 });
