@@ -12,22 +12,27 @@ page {
 .swiper {
   height: 100%;
 }
+
 .page-body {
   height: 100%;
   padding-top: 60rpx;
 }
+
 .page-section {
   width: 100%;
   margin-bottom: 60rpx;
 }
+
 .page-section_center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .page-section:last-child {
   margin-bottom: 0;
 }
+
 .page-section-gap {
   box-sizing: border-box;
   padding: 0 30rpx;
@@ -40,6 +45,7 @@ page {
   padding-left: 30rpx;
   padding-right: 30rpx;
 }
+
 .page-section-gap .page-section-title {
   padding-left: 0;
   padding-right: 0;
@@ -53,6 +59,7 @@ page {
   color: #ffffff;
   font-size: 36rpx;
 }
+
 .demo-text-1:before {
   content: "A";
   position: absolute;
@@ -60,6 +67,7 @@ page {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .demo-text-2 {
   position: relative;
   align-items: center;
@@ -68,6 +76,7 @@ page {
   color: #ffffff;
   font-size: 36rpx;
 }
+
 .demo-text-2:before {
   content: "B";
   position: absolute;
@@ -75,6 +84,7 @@ page {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .demo-text-3 {
   position: relative;
   align-items: center;
@@ -83,6 +93,7 @@ page {
   color: #353535;
   font-size: 36rpx;
 }
+
 .demo-text-3:before {
   content: "C";
   position: absolute;
@@ -94,26 +105,35 @@ page {
 button {
   margin-bottom: 30rpx;
 }
+
 button:last-child {
   margin-bottom: 0;
 }
+
 .page-section-title {
   padding: 0;
 }
+
 .swiper-item {
-  display: block;
+  display: flex;
   height: 100vh;
+  justify-content: center;
+  align-items: center;
+
 }
+
 .page-section-title {
   margin-top: 60rpx;
   position: relative;
 }
+
 .info {
   position: absolute;
   right: 0;
   color: #353535;
   font-size: 30rpx;
 }
+
 .page-foot {
   margin-top: 50rpx;
 }

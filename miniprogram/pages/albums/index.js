@@ -73,4 +73,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {},
+  jumptoPhoto(event) {
+    const imageId = event.currentTarget.dataset.id;
+    console.log(
+      "🚀 ~ file: index.js ~ line 79 ~ jumptoPhoto ~ imageId",
+      imageId
+    );
+    wx.navigateTo({
+      url: "/pages/photo/index?id=" + imageId,
+    });
+  },
 });
