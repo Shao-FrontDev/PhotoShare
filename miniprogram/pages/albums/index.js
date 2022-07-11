@@ -12,18 +12,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    const db = wx.cloud.database();
-    db.collection("imageCategories")
-      .where({
-        _id: options.type,
-      })
-      .get()
-      .then((res) => {
-        const banner = res.data[0];
-        this.setData({
-          banner: banner,
-        });
-      });
+    // const db = wx.cloud.database();
+    // db.collection("imageCategories")
+    //   .where({
+    //     _id: options.type,
+    //   })
+    //   .get()
+    //   .then((res) => {
+    //     const banner = res.data[0];
+    //     this.setData({
+    //       banner: banner,
+    //     });
+    //   });
 
     const {
       result: { data },
@@ -36,6 +36,12 @@ Page({
 
     this.setData({
       albums: albumsData,
+    });
+
+    const randomIndexInAlbums = Math.floor(Math.random() * albumsData.length);
+    const randomBanner = albumsData[randomIndexInAlbums];
+    this.setData({
+      banner: randomBanner,
     });
   },
 

@@ -141,3 +141,8 @@ button:last-child {
 .swiper-container {
   height: 100vh;
 }
+
+.image {
+  width: 100%;
+  margin-bottom: 100rpx;
+}
