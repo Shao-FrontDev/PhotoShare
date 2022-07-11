@@ -1,5 +1,5 @@
 <!-- pages/albums/index.wxml -->
-<view class="container">
+<view class="container" wx:if="{{!loading}}">
   <image class="banner" src="{{banner.url}}" mode="aspectFill" wx:key="{{_id}}">
 
   </image>
@@ -11,4 +11,8 @@
       </image>
     </block>
   </view>
+</view>
+
+<view class="load-container" wx:if="{{loading}}">
+  <view class="loader-5"></view>
 </view>
