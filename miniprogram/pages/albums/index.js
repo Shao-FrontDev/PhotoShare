@@ -4,40 +4,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    images: {},
     banner: {},
+    albums: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    console.log("options: ", options.type);
+  async onLoad(options) {
     const db = wx.cloud.database();
-    db.collection("portrait")
-      .get()
-      .then((res) => {
-        console.log(res.data);
-        const imageUrls = res.data[0].url;
-        console.log("images: ", imageUrls);
-        this.setData({
-          images: imageUrls,
-        });
-      });
-
     db.collection("imageCategories")
       .where({
         _id: options.type,
       })
       .get()
       .then((res) => {
-        console.log(res.data);
         const banner = res.data[0];
-        console.log("banner: ", banner);
         this.setData({
           banner: banner,
         });
       });
+
+    const {
+      result: { data },
+    } = await wx.cloud.callFunction({
+      name: "getAlbumsImages",
+    });
+    const albumsData = data.filter((element) => {
+      return element.type === options.type;
+    });
+
+    this.setData({
+      albums: albumsData,
+    });
   },
 
   /**

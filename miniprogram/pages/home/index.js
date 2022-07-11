@@ -11,18 +11,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    // const db = wx.cloud.database();
-    // db.collection("imageCategories")
-    //   .get()
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     const cards = res.data;
-    //     console.log("cards: ", cards);
-    //     this.setData({
-    //       cards: cards,
-    //     });
-    //   });
-
     const { result } = await wx.cloud.callFunction({
       name: "getImagesCategories",
     });
