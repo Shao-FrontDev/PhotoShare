@@ -1,7 +1,7 @@
 <view class="container">
   <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{true}}" interval="{{interval}}"
-      duration="{{duration}}" class="swiper-container" easing-function="easeInOutCubic" current="{{currentIndex}}">
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{true}}" duration="{{duration}}" class="swiper-container"
+      easing-function="easeInOutCubic" current="{{currentIndex}}">
       <block wx:for="{{images}}" wx:key="_id">
         <swiper-item>
           <view class="swiper-item">
