@@ -25,15 +25,18 @@ Page({
 
     const randomIndexInAlbums = Math.floor(Math.random() * albumsData.length);
     const randomBanner = albumsData[randomIndexInAlbums];
-    this.setData({
-      albums: albumsData,
-      type: options.type,
-      banner: randomBanner,
-    });
-
-    this.setData({
-      loading: false,
-    });
+    this.setData(
+      {
+        albums: albumsData,
+        type: options.type,
+        banner: randomBanner,
+      },
+      () => {
+        this.setData({
+          loading: false,
+        });
+      }
+    );
   },
 
   /**

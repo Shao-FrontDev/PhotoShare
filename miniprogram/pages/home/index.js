@@ -5,6 +5,7 @@ Page({
    */
   data: {
     cards: {},
+    loading: true,
   },
 
   /**
@@ -16,9 +17,14 @@ Page({
     });
 
     const cards = result.data;
-    this.setData({
-      cards: cards,
-    });
+    this.setData(
+      {
+        cards: cards,
+      },
+      () => {
+        this.setData({ loading: false });
+      }
+    );
   },
 
   /**
