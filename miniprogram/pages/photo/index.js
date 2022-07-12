@@ -8,7 +8,6 @@ Page({
     currentIndex: 0,
   },
   async onLoad(options) {
-    console.log("🚀 ~ file: index.js ~ line 12 ~ onLoad ~ options", options);
     const { current, type } = options;
     const {
       result: { data },

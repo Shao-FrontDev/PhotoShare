@@ -1,0 +1,7 @@
+<!--components/index.wxml-->
+
+<view class="load-container">
+    <view class="loader-5">
+        <view class="loadier-inner"></view>
+    </view>
+</view>

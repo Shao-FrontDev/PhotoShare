@@ -13,6 +13,4 @@
   </view>
 </view>
 
-<view class="load-container" wx:if="{{loading}}">
-  <view class="loader-5"></view>
-</view>
+<loading wx:if="{{loading}}"></loading>

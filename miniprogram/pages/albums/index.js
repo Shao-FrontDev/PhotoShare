@@ -72,7 +72,6 @@ Page({
   onShareAppMessage() {},
   jumptoPhoto(event) {
     const imageId = event.currentTarget.dataset.id;
-    console.log(this);
     wx.navigateTo({
       url: `/pages/photo/index?type=${this.data.type}&current=${imageId}`,
     });

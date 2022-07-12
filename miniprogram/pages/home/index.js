@@ -56,8 +56,7 @@ Page({
    */
   onShareAppMessage() {},
   jumpToAlbums(event) {
-    const type = event.target.dataset.type;
-    console.log("click", event);
+    const { type } = event.target.dataset;
     wx.navigateTo({
       url: "/pages/albums/index?type=" + type,
     });
