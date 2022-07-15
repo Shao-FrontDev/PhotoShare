@@ -22,7 +22,10 @@ Page({
         cards: cards,
       },
       () => {
-        this.setData({ loading: false });
+        const timer = setTimeout(() => {
+          this.setData({ loading: false });
+          clearTimeout(timer);
+        }, 1000);
       }
     );
   },

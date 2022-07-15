@@ -7,10 +7,13 @@
   <view class="image-container-title">Photos</view>
   <view class="image-container">
     <block wx:for="{{albums}}" wx:key="_id">
-      <image class="image-item" src="{{item.url}}" mode="aspectFill" bindtap="jumptoPhoto" data-id="{{item._id}}">
+      <image class="image-item" src="{{item.url}}" mode="aspectFill" bindtap="jumptoPhoto" data-id="{{item._id}}"
+        lazy-load>
       </image>
     </block>
+
   </view>
+  <view class="bottom-guard"></view>
 </view>
 
 <loading wx:if="{{loading}}"></loading>

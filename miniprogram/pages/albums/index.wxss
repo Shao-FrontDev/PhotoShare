@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   margin-top: 50rpx;
   display: flex;
   align-items: center;
@@ -12,7 +13,6 @@
   position: relative;
   width: 686rpx;
   height: 686rpx;
-  background: #c4c4c4;
   border-radius: 10rpx;
 }
 
@@ -30,7 +30,9 @@
 }
 
 .image-container {
+  position: relative;
   display: flex;
+  height: 100%;
   gap: 8rpx 8rpx;
   flex-wrap: wrap;
   width: 688rpx;
@@ -41,7 +43,6 @@
 .image-item {
   width: 224rpx;
   height: 224rpx;
-  background: #c4c4c4;
 }
 
 .image-container-title {
@@ -85,4 +86,15 @@
   color: #a4a4a4;
 
   backdrop-filter: blur(4px);
+}
+
+
+.bottom-guard {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 99rpx;
+  /* background-color: greenyellow; */
 }

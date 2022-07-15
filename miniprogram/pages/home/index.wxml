@@ -1,7 +1,7 @@
 <!-- pages/home/index.wxml -->
 <view class="container" wx:if="{{!loading}}">
   <block wx:for="{{cards}}" wx:key="_id">
-    <image class="card" src="{{item.url}}" mode="aspectFill" bindtap="jumpToAlbums" data-type="{{item._id}}">
+    <image class="card" src="{{item.url}}" mode="aspectFill" bindtap="jumpToAlbums" data-type="{{item._id}}" lazy-load>
       <view class="categories">{{item.categories}}</view>
     </image>
   </block>

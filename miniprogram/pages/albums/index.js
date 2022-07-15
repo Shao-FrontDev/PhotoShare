@@ -1,13 +1,19 @@
 // pages/albums/index.js
+
+const PAGE_COUNT = 9;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     banner: {},
-    albums: {},
+    albums: [],
     type: {},
     loading: true,
+    loadingIndex: 0,
+    observer: null,
+    preloadImage: [],
+    albumsData: null,
   },
 
   /**
@@ -19,22 +25,28 @@ Page({
     } = await wx.cloud.callFunction({
       name: "getAlbumsImages",
     });
-    const albumsData = data.filter((element) => {
+    this.data.albumsData = data.filter((element) => {
       return element.type === options.type;
     });
 
-    const randomIndexInAlbums = Math.floor(Math.random() * albumsData.length);
-    const randomBanner = albumsData[randomIndexInAlbums];
+    const randomIndexInAlbums = Math.floor(
+      Math.random() * this.data.albumsData.length
+    );
+    const randomBanner = this.data.albumsData[randomIndexInAlbums];
+
+    // 先加载10张照片
+
     this.setData(
       {
-        albums: albumsData,
         type: options.type,
         banner: randomBanner,
       },
       () => {
-        this.setData({
-          loading: false,
-        });
+        this.setData({ loading: false });
+        const timer = setTimeout(() => {
+          this.setIntersectionObserver();
+          clearTimeout(timer);
+        }, 1000);
       }
     );
   },
@@ -77,6 +89,31 @@ Page({
     const imageId = event.currentTarget.dataset.id;
     wx.navigateTo({
       url: `/pages/photo/index?type=${this.data.type}&current=${imageId}`,
+    });
+  },
+  loadMore() {
+    const images = this.albums.slice(
+      this.loadingIndex,
+      this.loadingIndex + PAGE_COUNT
+    );
+  },
+  setIntersectionObserver() {
+    const observer = wx.createIntersectionObserver().relativeToViewport();
+    observer.observe(".bottom-guard", (e) => {
+      console.log("watching");
+      const newData = this.data.albumsData.slice(
+        this.data.loadingIndex,
+        this.data.loadingIndex + PAGE_COUNT
+      );
+      this.data.preloadImage = [...this.data.preloadImage, ...newData];
+
+      if (this.data.preloadImage.length > this.data.albumsData.length * 2) {
+        console.log("已经超出长度");
+      } else {
+        this.setData({
+          albums: this.data.preloadImage,
+        });
+      }
     });
   },
 });
