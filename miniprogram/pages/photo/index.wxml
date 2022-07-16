@@ -1,14 +1,113 @@
-<view class="container">
-  <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" vertical="{{true}}" duration="{{duration}}" class="swiper-container"
-      easing-function="easeInOutCubic" current="{{currentIndex}}">
+<view class="container ">
+  <view class=" page-section page-section-spacing swiper">
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{true}}" duration="{{duration}}" class="swiper-container "
+      easing-function="easeInOutCubic" current="{{currentIndex}}" bindchange="handlerChange">
       <block wx:for="{{images}}" wx:key="_id">
         <swiper-item>
-          <view class="swiper-item">
-            <image src="{{item.url}}" mode="widthFix" class="image" show-menu-by-longpress lazy-load />
+          <view class="swiper-item  ">
+            <image src="{{item.url}}" mode="widthFix" class="image {{takePhoto ? 'blink':'' }}"
+              show-menu-by-longpress />
           </view>
         </swiper-item>
       </block>
     </swiper>
+  </view>
+  <view class="camera {{takePhoto ? 'zoom':'' }}" bindtap="takePhoto">
+    <view class="back"></view>
+    <view class="top_middle">
+
+      <view class="top_left">
+        <view class="body">
+          <view class="border"></view>
+          <view class="middle"></view>
+        </view>
+      </view>
+      <view class="plus_button">
+        <view class="inner">
+          <h1>
+            <i class="fas fa-plus"></i>
+          </h1>
+        </view>
+      </view>
+      <view class="under_plus">
+        <view class="inner"></view>
+      </view>
+      <view class="red_button_container">
+        <view class="red_button"></view>
+      </view>
+      <view class="lens">
+        <view class="lens_1">
+          <view class="lens_2">
+            <view class="lens_3">
+              <view class="lens_4">
+                <!--       green goes here         -->
+                <view class="lens_5">
+                  <view class="lens_6">
+                    <view class="lens_7"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="under_lens">
+        <view class="inner"></view>
+      </view>
+      <view class="rainbow"></view>
+      <view class="top_right">
+        <view class="viewfinder">
+          <view class="inner_1">
+            <view class="inner_2">
+              <view class="inner_3">
+                <view class="hole"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="shadows_middle"></view>
+        <view class="shadows_left"></view>
+        <view class="shadows_left_corner"></view>
+        <view class="shadows_right"></view>
+        <view class="shadows_right_corner"></view>
+      </view>
+      <view class="middle_right">
+        <view class="middle">
+          <view class="circle"></view>
+        </view>
+        <p class="minus">
+          <i class="fas fa-minus"></i>
+        </p>
+        <p class="plus">
+          <i class="fas fa-plus"></i>
+        </p>
+      </view>
+      <view class="text">
+        <h1>One</h1>
+        <h1>Step</h1>
+        <h1><i class="fas fa-plus"></i></h1>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="top">
+        <view class="left"></view>
+        <view class="middle">
+          <view class="switch">
+            <view class="switch_btn"></view>
+          </view>
+        </view>
+        <view class="right"></view>
+      </view>
+      <view class="btm">
+        <h1>Polaroid</h1>
+        <h1>I-TYPE CAMERA</h1>
+        <view class="logo"></view>
+      </view>
+    </view>
+    <view class="under_btm"></view>
+    <view class="corners">
+      <view class="corner_left"></view>
+      <view class="corner_right"></view>
+    </view>
   </view>
 </view>

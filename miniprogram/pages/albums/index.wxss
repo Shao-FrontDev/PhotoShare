@@ -6,7 +6,6 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 32rpx;
-  margin-bottom: 250rpx;
 }
 
 .banner {

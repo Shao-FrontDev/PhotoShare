@@ -10,10 +10,12 @@ Page({
     albums: [],
     type: {},
     loading: true,
-    loadingIndex: 0,
+    loadIndex: 0,
     observer: null,
     preloadImage: [],
     albumsData: null,
+    loading: false,
+    rendering: false,
   },
 
   /**
@@ -36,19 +38,14 @@ Page({
 
     // 先加载10张照片
 
-    this.setData(
-      {
-        type: options.type,
-        banner: randomBanner,
-      },
-      () => {
-        this.setData({ loading: false });
-        const timer = setTimeout(() => {
-          this.setIntersectionObserver();
-          clearTimeout(timer);
-        }, 1000);
-      }
-    );
+    this.setData({
+      type: options.type,
+      banner: randomBanner,
+      loading: false,
+    });
+
+    this.loadMore();
+    this.setIntersectionObserver();
   },
 
   /**
@@ -91,29 +88,39 @@ Page({
       url: `/pages/photo/index?type=${this.data.type}&current=${imageId}`,
     });
   },
+
   loadMore() {
-    const images = this.albums.slice(
-      this.loadingIndex,
-      this.loadingIndex + PAGE_COUNT
+    if (this.data.loading || this.data.rendering) {
+      return;
+    }
+    if (this.data.loadIndex > this.data.albumsData) {
+      return;
+    }
+    this.data.loading = true;
+
+    const imageList = this.data.albumsData.slice(
+      this.data.loadIndex,
+      this.data.loadIndex + PAGE_COUNT
     );
+
+    this.data.loadIndex += PAGE_COUNT;
+
+    const newData = [...this.data.albums, ...imageList];
+
+    wx.nextTick(() => {
+      this.setData({
+        albums: newData,
+      });
+      this.data.loading = false;
+    });
   },
+
   setIntersectionObserver() {
+    console.log("setIntersectionObserver");
     const observer = wx.createIntersectionObserver().relativeToViewport();
     observer.observe(".bottom-guard", (e) => {
       console.log("watching");
-      const newData = this.data.albumsData.slice(
-        this.data.loadingIndex,
-        this.data.loadingIndex + PAGE_COUNT
-      );
-      this.data.preloadImage = [...this.data.preloadImage, ...newData];
-
-      if (this.data.preloadImage.length > this.data.albumsData.length * 2) {
-        console.log("已经超出长度");
-      } else {
-        this.setData({
-          albums: this.data.preloadImage,
-        });
-      }
+      this.loadMore();
     });
   },
 });
