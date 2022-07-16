@@ -1,11 +1,11 @@
+const PAGE_COUNT = 10;
 Page({
   data: {
     indicatorDots: false,
-    autoplay: false,
-    circular: false,
     duration: 500,
     images: [],
     currentIndex: 0,
+    takePhoto: false,
   },
   async onLoad(options) {
     const { current, type } = options;
@@ -26,6 +26,18 @@ Page({
     this.setData({
       currentIndex: currentIndex,
       images: albumsData,
+    });
+  },
+  takePhoto() {
+    console.log("takePhoto");
+    this.setData({
+      takePhoto: true,
+    });
+  },
+  handlerChange() {
+    console.log("handlerChange");
+    this.setData({
+      takePhoto: false,
     });
   },
 });

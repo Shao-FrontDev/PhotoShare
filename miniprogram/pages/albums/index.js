@@ -14,7 +14,7 @@ Page({
     observer: null,
     preloadImage: [],
     albumsData: null,
-    loading: false,
+    loading: true,
     rendering: false,
   },
 
@@ -38,14 +38,21 @@ Page({
 
     // 先加载10张照片
 
-    this.setData({
-      type: options.type,
-      banner: randomBanner,
-      loading: false,
-    });
-
-    this.loadMore();
-    this.setIntersectionObserver();
+    this.setData(
+      {
+        type: options.type,
+        banner: randomBanner,
+      },
+      () => {
+        setTimeout(() => {
+          this.setData({
+            loading: false,
+          });
+          this.loadMore();
+          this.setIntersectionObserver();
+        }, 500);
+      }
+    );
   },
 
   /**
@@ -82,8 +89,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {},
-  jumptoPhoto(event) {
-    const imageId = event.currentTarget.dataset.id;
+  jumptoPhoto(e) {
+    const imageId = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `/pages/photo/index?type=${this.data.type}&current=${imageId}`,
     });
