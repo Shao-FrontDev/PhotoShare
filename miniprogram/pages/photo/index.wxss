@@ -3,7 +3,6 @@ page {
   height: 100%;
   font-size: 32rpx;
   line-height: 1.6;
-  background-image: linear-gradient(to right top, #ff40ad, #ef52c2, #db61d3, #c56fe1, #ac7beb, #898efa, #629fff, #38acff, #00c3ff, #00d7ff, #04eafc, #5ffbf1);
 
 }
 
