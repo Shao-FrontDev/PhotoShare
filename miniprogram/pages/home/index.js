@@ -1,4 +1,7 @@
 // pages/home/index.js
+
+const mMgr = wx.getBackgroundAudioManager();
+mMgr.title = "Crush";
 Page({
   /**
    * 页面的初始数据
@@ -28,6 +31,7 @@ Page({
         }, 1000);
       }
     );
+    this.onPlay();
   },
 
   /**
@@ -69,5 +73,13 @@ Page({
     wx.navigateTo({
       url: "/pages/albums/index?type=" + type,
     });
+  },
+
+  /**
+   * @param  {} {}
+   */
+  onPlay() {
+    mMgr.src = "http://music.163.com/song/media/outer/url?id=1439819144.mp3";
+    console.log("🚀 ~ file: index.js ~ line 82 ~ onPlay ~ mMgr", mMgr);
   },
 });
