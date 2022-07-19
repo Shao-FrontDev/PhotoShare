@@ -6,6 +6,7 @@ Page({
     images: [],
     currentIndex: 0,
     takePhoto: false,
+    autoplay: false,
   },
   async onLoad(options) {
     const { current, type } = options;
@@ -30,14 +31,15 @@ Page({
   },
   takePhoto() {
     console.log("takePhoto");
+
     this.setData({
-      takePhoto: true,
+      autoplay: !this.data.autoplay,
     });
   },
   handlerChange() {
     console.log("handlerChange");
     this.setData({
-      takePhoto: false,
+      autoplay: true,
     });
   },
 });

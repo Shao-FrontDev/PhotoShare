@@ -79,7 +79,7 @@ Page({
    * @param  {} {}
    */
   onPlay() {
-    mMgr.src = "http://music.163.com/song/media/outer/url?id=1439819144.mp3";
+    mMgr.src = "http://music.163.com/song/media/outer/url?id=442682.mp3";
     console.log("🚀 ~ file: index.js ~ line 82 ~ onPlay ~ mMgr", mMgr);
   },
 });
