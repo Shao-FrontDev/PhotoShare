@@ -11,6 +11,7 @@
     "navigationBarTitleText": "Shao's photos",
     "navigationBarTextStyle": "black"
   },
+  "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

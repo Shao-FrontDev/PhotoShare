@@ -1,11 +1,14 @@
 <!-- pages/home/index.wxml -->
+<import src="index.skeleton.wxml" />
+<template is="skeleton" wx:if="{{loading}}" />
+<import src="index.skeleton.wxml" />
+<template is="skeleton" wx:if="{{loading}}" />
 <view class="container" wx:if="{{!loading}}">
   <block wx:for="{{cards}}" wx:key="_id">
     <image class="card" src="{{item.url}}" mode="aspectFill" bindtap="jumpToAlbums" data-type="{{item._id}}" lazy-load>
       <view class="categories">{{item.categories}}</view>
     </image>
   </block>
-  <view class="space-line"></view>
 </view>
 
-<loading wx:if="{{loading}}"></loading>
+<!-- <loading wx:if="{{loading}}"></loading> -->
