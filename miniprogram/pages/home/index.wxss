@@ -53,7 +53,6 @@
   width: 686rpx;
   height: 0rpx;
 
-
   border: 1rpx solid #c4c4c4;
   transform: rotate(-0.17deg);
 }

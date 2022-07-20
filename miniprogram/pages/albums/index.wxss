@@ -20,13 +20,15 @@
   width: 686rpx;
   height: 96rpx;
   border-radius: 10rpx;
-  background: linear-gradient(45deg,
-      #405de6,
-      #5851db,
-      #833ab4,
-      #c13584,
-      #e1306c,
-      #fd1d1d);
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
 }
 
 .image-container {
@@ -98,7 +100,6 @@
 
   backdrop-filter: blur(4px);
 }
-
 
 .bottom-guard {
   position: absolute;
